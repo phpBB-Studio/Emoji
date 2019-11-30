@@ -1,2 +1,0 @@
-# Emoji
-Coming soon

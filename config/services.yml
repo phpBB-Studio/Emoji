@@ -1,0 +1,12 @@
+services:
+    phpbbstudio.emoji.listener:
+        class: phpbbstudio\emoji\event\listener
+        arguments:
+            - '@phpbbstudio.emoji.emoji'
+            - '@language'
+            - '@template'
+        tags:
+            - { name: event.listener }
+
+    phpbbstudio.emoji.emoji:
+        class: phpbbstudio\emoji\emoji

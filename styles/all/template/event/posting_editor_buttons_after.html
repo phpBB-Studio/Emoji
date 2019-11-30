@@ -1,0 +1,54 @@
+{% if S_SMILIES_ALLOWED %}
+	{% if not definition.INCLUDED_STUDIOEMOJIJS %}
+		{% INCLUDEJS '@phpbbstudio_emoji/studio_emoji.js' %}
+		{% DEFINE INCLUDED_STUDIOEMOJIJS = true %}
+	{% endif %}
+
+	<div class="hidden" id="studio_emoji">
+		<span class="hidden" data-cdn="{{ U_STUDIO_EMOJI }}" data-ext="{{ T_STUDIO_EMOJI }}">{{ STUDIO_EMOJI }}</span>
+		<div class="tabs sub-panels" id="emoji" data-show-panel="{{ S_STUDIO_EMOJI }}" role="tablist" style="margin-top: 3px; margin-bottom: 0;">
+			<ul>
+				{% for category in studio_emoji %}
+				<li id="{{ category.PANEL }}-tab" class="tab{{ loop.first ? ' activetab' }}" title="{{ lang(category.TITLE) }}">
+					<a href="#emoji" data-subpanel="{{ category.PANEL }}" role="tab" aria-controls="{{ category.PANEL }}">
+						<i class="icon fa-{{ category.ICON }} fa-fw"></i>
+					</a>
+				</li>
+				{% endfor %}
+
+				<li id="emoji-search-panel-tab" class="tab" title="{{ lang('STUDIO_EMOJI_FIND') }}">
+					<a href="#emoji" data-subpanel="emoji-search-panel" role="tab" aria-controls="emoji-search-panel">
+						<i class="icon fa-search fa-fw"></i>
+					</a>
+				</li>
+			</ul>
+		</div>
+
+		{% for category in studio_emoji %}
+		<div class="panel bg3" id="{{ category.PANEL }}">
+			<div class="inner">
+				<h3 class="small">{{ lang(category.TITLE) }}</h3>
+				<div class="post_details" style="height: 95px; margin-top: 2px;">
+					{% for name, src in category.EMOJI %}
+						<a href="#" onclick="insert_text('{{ name }}', true); return false;">
+							<img class="emoji smilies" alt="{{ name }}" title="{{ name }}" draggable="false" data-src="{{ U_STUDIO_EMOJI ~ src ~ T_STUDIO_EMOJI }}">
+						</a>
+					{% endfor %}
+				</div>
+			</div>
+		</div>
+		{% endfor %}
+
+		<div class="panel bg3" id="emoji-search-panel">
+			<div class="inner">
+				<h3 class="small">
+					<label for="emoji_search">{{ lang('STUDIO_EMOJI_FIND') ~ lang('COLON') }}</label>
+					<input class="tiny" id="emoji_search" type="text" />
+				</h3>
+				<div class="post_details" id="emoji_search_result" style="height: 91px; margin-top: 2px;">
+					<span class="error">{{ lang('STUDIO_EMOJI_NONE') }}</span>
+				</div>
+			</div>
+		</div>
+	</div>
+{% endif %}
