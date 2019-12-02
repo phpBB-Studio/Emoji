@@ -1,0 +1,3 @@
+{% if S_SMILIES_ALLOWED and U_STUDIO_EMOJI %}
+	<input type="button" class="abbc3_button" name="emoji" value=" " style="background-image: url({{ U_STUDIO_EMOJI ~ '1f600' ~ T_STUDIO_EMOJI }});" onclick="phpbb.toggleDisplay('studio_emoji');" title="{{ lang('STUDIO_EMOJI_TOGGLE') }}">
+{% endif %}

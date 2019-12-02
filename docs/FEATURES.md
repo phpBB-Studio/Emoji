@@ -4,3 +4,4 @@
 - Emoji are categorised as on any other platform and Twitter.
 - Available where all regular smilies are available.
 - Ease-of-use search functionality included.
+- VSE's ABBC3 compatible.
