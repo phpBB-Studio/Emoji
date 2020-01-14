@@ -2,16 +2,24 @@ jQuery(function($) {
 	let studio = {
 		result: $('#emoji_search_result'),
 		init: function() {
-			studio.lazyLoad();
+			studio.lazyLoad('emoji-smileys-panel');
+			studio.clickTab();
 			studio.getData();
 			studio.bindSearch();
 
 			studio.result.empty = studio.result.find('> .error');
 		},
-		lazyLoad: function() {
-			$('#studio_emoji img[data-src]').each(function() {
+		lazyLoad: function(subpanel) {
+			$('#'+subpanel+' img[data-src]').each(function() {
 				$(this).attr('src', $(this).data('src'));
 				$(this).removeAttr('data-src');
+			});
+		},
+		clickTab: function() {
+			$('#studio_emoji a[data-subpanel]').each(function() {
+				$(this).on('click', function() {
+					studio.lazyLoad($(this).data('subpanel'));
+				});
 			});
 		},
 		getData: function() {
