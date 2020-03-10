@@ -80,7 +80,7 @@ class ext extends \phpbb\extension\base
 	/**
 	 * Check phpBB minimum requirement.
 	 *
-	 * @return void|bool
+	 * @return bool
 	 */
 	protected function phpbb_requirement()
 	{
@@ -97,7 +97,7 @@ class ext extends \phpbb\extension\base
 	/**
 	 * Check PHP minimum requirements.
 	 *
-	 * @return void|bool
+	 * @return bool
 	 */
 	protected function php_requirement()
 	{

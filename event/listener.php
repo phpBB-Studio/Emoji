@@ -17,18 +17,6 @@ use Symfony\Component\EventDispatcher\EventSubscriberInterface;
  */
 class listener implements EventSubscriberInterface
 {
-	/**
-	 * Assign functions defined in this class to event listeners in the core.
-	 *
-	 * @return array
-	 * @access public
-	 * @static
-	 */
-	static public function getSubscribedEvents()
-	{
-		return ['core.generate_smilies_after' => 'generate_emoji'];
-	}
-
 	/** @var \phpbbstudio\emoji\emoji */
 	protected $emoji;
 
@@ -44,8 +32,6 @@ class listener implements EventSubscriberInterface
 	 * @param  \phpbbstudio\emoji\emoji		$emoji			phpBB Studio - Emoji data
 	 * @param  \phpbb\language\language		$language		Language object
 	 * @param  \phpbb\template\template		$template		Template object
-	 * @return void
-	 * @access public
 	 */
 	public function __construct(\phpbbstudio\emoji\emoji $emoji, \phpbb\language\language $language, \phpbb\template\template $template)
 	{
@@ -55,11 +41,21 @@ class listener implements EventSubscriberInterface
 	}
 
 	/**
+	 * Assign functions defined in this class to event listeners in the core.
+	 *
+	 * @return array
+	 * @static
+	 */
+	static public function getSubscribedEvents()
+	{
+		return ['core.generate_smilies_after' => 'generate_emoji'];
+	}
+
+	/**
 	 * Generate emoji when generating smilies.
 	 *
 	 * @param  \phpbb\event\data	$event		The event object
 	 * @return void
-	 * @access public
 	 */
 	public function generate_emoji($event)
 	{

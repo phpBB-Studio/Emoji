@@ -42,7 +42,7 @@
 - Emoji are categorised as on any other platform and Twitter.
 - Available where all regular smilies are available.
 - Ease-of-use search functionality included.
-- VSE's ABBC3 compatible.
+- Compatible with Advanced BBCode Box 3 from VSE.
 
 ## You might also like
 - [Advanced Shop System](https://github.com/phpBB-Studio/AdvancedPointsSystem)

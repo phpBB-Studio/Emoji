@@ -3,8 +3,8 @@
 	"type": "phpbb-extension",
 	"description": "phpBB Studio - Emoji",
 	"homepage": "https://www.phpbbstudio.com",
-	"version": "1.0.1-beta",
-	"time": "2019-12-02",
+	"version": "1.0.2-RC",
+	"time": "2020-03-11",
 	"license": "GPL-2.0-only",
 	"authors": [
 		{
